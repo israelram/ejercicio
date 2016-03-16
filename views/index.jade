@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div.container.content-color
+    div#content-form 
+        h1= title         
+        p Resultado de coincidencias: #{dato}
+        form#frm(method="post"  action="/entradas" onsubmit="cargar(this)")    
+            
+            div.form-group
+                label#label-error.control-label(for='inputError')
+                div.center-block.dropdown.size-control-text
+                    input.center-block.btn.btn-default.dropdown-toggle.form-control(type="text" id="txt" name="txtentrada" oninput="control(this)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value=datoIngresado autocomplete="off")                     
+                    ul.dropdown-menu
+                        each i in dato 
+                            li
+                                a(href="#" onclick="seleccionarValue(this)")=i
+            
+            
+        div.content-panel
+            div.panel.panel-primary        
+                div.panel-heading(style="background-color: saddlebrown;")
+                    h3.panel-title Coincidencia seleccionada
+                |   
+                div#word.panel-body
+        
+            
+                  
+       
+ 
+                    
